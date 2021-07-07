@@ -37,7 +37,25 @@ services:
 - terminal from root directory of yaml file > **docker-compose up**  #build images and start running the container
 - terminal from root directory of yaml file > **docker-compose down** # stop the container and remove it from the container
 
+Build Docker image with dockerImage and tag as latest
 
+	docker build -t dockerImage:latest .
+
+export docker image
+
+	docker save -o dockerImage_export.tar.gz dockerImage:latest
+
+run the docker container with container name as dockerContainer and port 4502
+
+	docker container run --name dockerContainer -p 4502:8080 dockerImage:latest
+
+Stop a running container through SIGKILL(stop and remove the container)
+
+	docker container kill dockerContainer
+
+Delete an image from the local image store
+
+	docker image rm dockerImage:latest
 
 
 
